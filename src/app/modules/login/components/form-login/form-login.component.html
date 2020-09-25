@@ -1,0 +1,46 @@
+<div class="row login">
+    <div class="title">
+        <h5>Login</h5>
+    </div>
+    <span><i>Entre na sua conta</i></span>
+    <form> 
+        <div class="row">
+            <div class="input-field col m10 s12 offset-m1">
+                <input
+                    id="username"
+                    name="username"
+                    class="validate"
+                    type="text"
+                    [(ngModel)]="login.username"
+                    (focusout)="validateInput($event, 'username')"
+                    required
+                >
+                <label for="username">Usuário</label>
+                <app-toast-invalid-input mensagem="Usuário não pode ser vazio" *ngIf="toasts['username']"></app-toast-invalid-input>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col m10 s12 offset-m1">
+                <input
+                    id="password"
+                    name="password"
+                    class="validate"
+                    type="password"
+                    [(ngModel)]="login.password"
+                    (focusout)="validateInput($event, 'password')"
+                    required
+                >
+                <label for="password">Senha</label>
+                <app-toast-invalid-input mensagem="Senha não pode ser vazia" *ngIf="toasts['password']"></app-toast-invalid-input>
+            </div>
+        </div>
+    </form>
+
+    <div class="button-login">
+        <button (click)="submit()">Entrar</button>
+    </div>
+</div>
+
+<div class="redirect-register">
+    <h6><i>Ainda não é um usuário BooBank? Crie sua conta grátis</i></h6>
+</div>
