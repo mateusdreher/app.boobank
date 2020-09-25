@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '@interfaces/User';
-import { UserAddress } from '@interfaces/UserAddress';
+import { IUser } from '@interfaces/IUser';
+import { IUserAddress } from '@interfaces/IUserAddress';
 
 
 @Injectable({
@@ -17,11 +17,11 @@ export class RegisterService {
     this.base_url = "http://localhost:3333";
   }
 
-  createUser(user: User): Observable<Object> {
+  createUser(user: IUser): Observable<Object> {
     return this.http.post(`${this.base_url}/register`, user);
   }
 
-  saveAddress(address: UserAddress): Observable<Object> {
+  saveAddress(address: IUserAddress): Observable<Object> {
     return this.http.post(`${this.base_url}/address`, address);
   }
 }

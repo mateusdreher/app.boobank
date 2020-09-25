@@ -1,4 +1,4 @@
-export interface UserAddress {
+export interface IUserAddress {
     cod_usu?: string;
     rua: string;
     numero: string;

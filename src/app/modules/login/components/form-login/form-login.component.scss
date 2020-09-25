@@ -1,0 +1,41 @@
+@import '../../../../shared/style-variables.scss';
+
+.button-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    button {
+        width: 150px;
+        height: 50px;
+        background-color: $cor_fundo_destaque2;
+        color: $cor_fonte_geral;
+        border: none;
+        border-radius: 10px;
+        &:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    }
+}
+
+.login {
+    color: white;
+    width: 100%;
+    .title {
+        text-align: center;
+        margin-bottom: 3%;
+    }
+    span {
+        font-size: $tamanho_fonte_titulo_card;
+        margin-bottom: 5%;
+    }
+}
+
+input {
+    color: white;
+}
+.redirect-register {
+    margin-top: 15%;
+    color: white
+}

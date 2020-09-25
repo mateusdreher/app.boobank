@@ -1,0 +1,16 @@
+@import '../../../shared/style-variables.scss';
+.view-login{
+    padding-left: 2%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .form {
+        border-right: 2px solid $cor_fundo_destaque;
+    }
+    .image {
+        height: 100vh;
+        background: url('../../../../assets/images/bank-illustration-3.png') center center no-repeat;
+        background-size: contain;
+    }
+}

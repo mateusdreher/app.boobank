@@ -1,0 +1,11 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    .end {
+        display: flex;
+        justify-content: space-around;
+        align-items: baseline;
+    }
+}

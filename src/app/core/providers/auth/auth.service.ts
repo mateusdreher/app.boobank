@@ -27,6 +27,6 @@ export class AuthService {
   }
   
   auth(username: string, password: string):Observable<Object> {
-    return this.http.post(this.base_url, {username, password});
+    return this.http.post(this.base_url, { username, password });
   }
 }
