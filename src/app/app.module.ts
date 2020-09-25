@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
+import { HttpClientModule} from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/components/header/header.component';
@@ -17,7 +19,9 @@ registerLocaleData(localePt);
     FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    HttpModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt-BR'}
