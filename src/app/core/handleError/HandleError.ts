@@ -11,6 +11,8 @@ class AppErrorHandle extends ErrorHandler {
     handleError(error: Error | HttpErrorResponse) {
         let msg = new ShowMessagesService();
 
+        console.error(error);
+
         let errormsg = error['error'].res.message;
 
         if (errormsg == "Userr not exists") {

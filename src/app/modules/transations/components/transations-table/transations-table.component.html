@@ -1,10 +1,10 @@
-<table>
+<table class="highlight responsive-table centered">
     <thead>
         <tr>
             <th></th>
             <th>Descrição</th>
             <th>Valor</th>
-            <th>destino</th>
+            <th>Destino</th>
             <th>Data</th>
         </tr>
     </thead>
@@ -12,17 +12,17 @@
     <tbody>
         <tr *ngFor="let transation of transations"> 
             <td class="icon">
-                <i class="material-icons">
+                <i class="material-icons tiny" [ngStyle]="transation.type == 0 ? {color: 'green'} : {color: 'red'}">
                     {{ transation.type == 0 ? 
                         'arrow_upward' : 
                         'arrow_downward'
                     }}
                 </i>
             </td>
-            <td>{{transation.description}}</td>
-            <td>{{transation.value}}</td>
-            <td>{{transation.destiny}}</td>
-            <td>{{transation.date_transation}}</td>
+            <td>{{transation.description | titlecase}}</td>
+            <td>{{transation.value | currency: 'BRL':'symbol'}}</td>
+            <td>{{transation.destiny | titlecase}}</td>
+            <td>{{transation.date_transation | date: 'dd/MM/yyyy'}}</td>
         </tr>
     </tbody>
 </table>

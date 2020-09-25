@@ -15,15 +15,13 @@ export class TransationsTableComponent implements OnInit {
   constructor(private transationsService: TransationsService) { }
 
   ngOnInit(): void {
+    this.getTransations();
   }
 
   getTransations(): void {
     this.transationsService.getTransations().subscribe(
       (result) => {
-        this.saveTransationstoVariable(result);
-      },
-      (error) => {
-        console.error(error);
+        this.saveTransationstoVariable(result['res'].data);
       }
     );
   }
@@ -32,6 +30,8 @@ export class TransationsTableComponent implements OnInit {
     Object.keys(result).forEach((index) => {
       this.transations.push(result[index]);
     });
+    
+    console.log(this.transations);
   }
 
 }

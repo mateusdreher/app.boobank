@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ShowMessagesService } from '@core/messages/show-messages.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -14,7 +15,7 @@ export class FormLoginComponent implements OnInit {
   login: any;
   toasts: object;
 
-  constructor(private authService: AuthService, private msg: ShowMessagesService) {
+  constructor(private authService: AuthService, private msg: ShowMessagesService, private router : Router) {
     this.login = {
       username: "",
       password: ""
@@ -50,6 +51,7 @@ export class FormLoginComponent implements OnInit {
       this.authService.auth(this.login.username, this.login.password).subscribe(
         (result) => {
           this.authService.setCurrentUserSessionValue(result['res'].data.token);
+          this.router.navigate(['']);
         }
       )
     }

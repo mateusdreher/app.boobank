@@ -15,17 +15,17 @@ export class TransationsService {
   }
 
   getTransations(): Observable<Object> {
-    let headers: HttpHeaders;
+    let headers = new HttpHeaders;
 
-    headers.append('auth', this.authService.currentUserSessionValue);
+    headers = headers.append('auth', this.authService.currentUserSessionValue);
 
     return this.http.get(`${this.base_url}/transations`, { headers });
   }
 
   getBalance(): Observable<Object> {
-    let headers: HttpHeaders;
+    let headers = new HttpHeaders();
 
-    headers.append('auth', this.authService.currentUserSessionValue);
+    headers = headers.append('auth', this.authService.currentUserSessionValue);
     
     return this.http.get(`${this.base_url}/balance`, { headers })
   }
