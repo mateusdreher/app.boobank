@@ -10,6 +10,7 @@ import { TransationsTableComponent } from './components/transations-table/transa
   ],
 
   imports: [
+    CommonModule
   ],
 
   exports: [

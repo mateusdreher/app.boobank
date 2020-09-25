@@ -14,7 +14,7 @@ export class AuthService {
   constructor(private http: HttpClient) {
     this.base_url = "http://localhost:3333/login";
 
-    this.currentUserSessionSubject = new BehaviorSubject<string>(JSON.parse(sessionStorage.getItem("token")));
+    this.currentUserSessionSubject = new BehaviorSubject<string>(JSON.parse(sessionStorage.getItem("session_value")));
   }
 
   public get currentUserSessionValue():string {

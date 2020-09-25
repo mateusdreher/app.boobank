@@ -1,0 +1,17 @@
+@import '../../../../shared/style-variables.scss';
+
+table {
+    width: 70%;
+    margin-left: 15%;
+    border: 2px solid $cor_fundo_destaque;
+    thead {
+        background-color: $cor_fundo_destaque;
+        color: $cor_fonte_titulo;
+    }
+    tbody {
+        color: $cor_fonte_geral;
+        tr {
+            border-bottom: none; 
+        }
+    }
+}
