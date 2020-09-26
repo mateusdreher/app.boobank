@@ -1,0 +1,38 @@
+@import '../../../../shared/style-variables.scss';
+
+.register {
+    width: 100%;
+
+    .button-create {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        button {
+            width: 150px;
+            height: 50px;
+            background-color: $cor_fundo_destaque2;
+            color: $cor_fonte_titulo;
+            border: none;
+            border-radius: 10px;
+            &:hover {
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+input { 
+    color: white
+}
+
+.redirect-login {
+    text-align: center;
+    margin-top: 10%;
+    color: white;
+    a:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}

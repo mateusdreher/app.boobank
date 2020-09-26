@@ -1,0 +1,130 @@
+<div class="row register">
+    <form>
+        <div class="row">
+            <div class="input-field col m6 s12">
+                <input
+                    id="first_name"
+                    name="first_name"
+                    class="validate"
+                    type="text"
+                    [(ngModel)]="user.first_name"
+                    required
+                >
+                <label for="first_name">Nome * </label>
+            </div>
+            <div class="input-field col m6 s12">
+                <input
+                    id="last_name"
+                    name="last_name"
+                    class="validate"
+                    type="text"
+                    [(ngModel)]="user.last_name"
+                    required
+                >
+                <label for="last_name">Sobrenome * </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col m6 s12">
+                <input
+                    id="email"
+                    name="email"
+                    class="validate"
+                    type="email"
+                    [(ngModel)]="user.email"
+                    required
+                >
+                <label for="email">E-mail * </label>
+            </div>
+            <div class="input-field col m6 s12">
+                <input
+                    id="conf_email"
+                    name="conf_email"
+                    class="validate"
+                    type="email"
+                    (focusout)="validateInput($event, 'email')"
+                    required
+                >
+                <label for="conf_email">Confirme seu e-mail *</label>
+                <app-toast-invalid-input mensagem="Os e-mails não são iguais" *ngIf="toasts['email']"></app-toast-invalid-input>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="input-field col m6 s12">
+                <input
+                    id="cpf"
+                    name="cpf"
+                    class="validate"
+                    type="text"
+                    [(ngModel)]="user.cpf"
+                    mask="000.000.000-00"
+                    required
+                >
+                <label for="cpf">CPF *</label>
+            </div>
+            <div class="input-field col m6 s12">
+                <input
+                    id="rg"
+                    name="rg"
+                    class="validate"
+                    type="text"
+                    [(ngModel)]="user.rg"
+                    required
+                >
+                <label for="rg">RG *</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col m6 s12 offset-m3">
+                <input
+                    id="username"
+                    name="username"
+                    class="validate"
+                    type="text"
+                    [(ngModel)]="user.username"
+                    (focusout)="validateInput($event, 'username')"
+                    required
+                >
+                <label for="username">Escolha um nome de usuário *</label>
+                <app-toast-invalid-input mensagem="Nome de usuário indisponível" *ngIf="toasts['username']"></app-toast-invalid-input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col m6 s12">
+                <input
+                    id="password"
+                    name="password"
+                    class="validate"
+                    type="password"
+                    [(ngModel)]="user.password"
+                    required
+                >
+                <label for="password">Senha *</label>
+            </div>
+            <div class="input-field col m6 s12">
+                <input
+                    id="conf_password"
+                    name="conf_password"
+                    class="validate"
+                    type="password"
+                    (focusout)="validateInput($event, 'password')"
+                    required
+                >
+                <label for="conf_password">Confirme sua senha *</label>
+                <app-toast-invalid-input mensagem="As senhas não são iguais" *ngIf="toasts['password']"></app-toast-invalid-input>
+            </div>
+        </div>
+
+        <div class="button-create">
+            <button type="button" (click)="submit()">Criar minha conta</button>
+        </div>
+
+        <div class="redirect-login">
+            <h6><i>Já possui conta BooBank? <a [routerLink]="['/login']">Faça seu login agora mesmo</a></i></h6>
+        </div>
+    </form>
+</div>

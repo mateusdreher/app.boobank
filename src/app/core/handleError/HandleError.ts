@@ -9,21 +9,31 @@ class AppErrorHandle extends ErrorHandler {
     }
 
     handleError(error: Error | HttpErrorResponse) {
-        let msg = new ShowMessagesService();
+        let msg = new ShowMessagesService();    
+        
+        let errormsg = "";
 
         console.error(error);
+        if (error['error'].res) {
+            errormsg = error['error'].res.message;
+        }
+        else { 
+            errormsg = error['statusText'];
+        }
 
-        let errormsg = error['error'].res.message;
 
         if (errormsg == "Userr not exists") {
             msg.error("Usuário inválido");
         }
-
         if (errormsg == "Invalid password") {
             msg.error("Senha incorreta");
         }
+        if (errormsg == "Unauthorized") {
+            sessionStorage.removeItem('session_value');
+            location.reload();
+        }
         
-        super.handleError(error);
+        //super.handleError(error);
     }
 }
 

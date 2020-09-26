@@ -24,4 +24,8 @@ export class RegisterService {
   saveAddress(address: IUserAddress): Observable<Object> {
     return this.http.post(`${this.base_url}/address`, address);
   }
+
+  verifyUsername(username: string): Observable<Object> {
+    return this.http.get(`${this.base_url}/register?username=${username}`);
+  }
 }
