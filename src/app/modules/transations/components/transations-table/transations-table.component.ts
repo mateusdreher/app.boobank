@@ -1,6 +1,8 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ITransation } from '@interfaces/ITransation';
 import { TransationsService } from '@providers/transations/transations.service';
+import { AuthService } from '@providers/auth/auth.service';
 
 
 @Component({
@@ -12,7 +14,7 @@ export class TransationsTableComponent implements OnInit {
 
   transations: Array<ITransation> = [];
   
-  constructor(private transationsService: TransationsService) { }
+  constructor(private transationsService: TransationsService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.getTransations();
@@ -22,6 +24,12 @@ export class TransationsTableComponent implements OnInit {
     this.transationsService.getTransations().subscribe(
       (result) => {
         this.saveTransationstoVariable(result['res'].data);
+      },
+      (error) => {
+        if(error.status == 401) {
+          this.authService.setCurrentUserSessionValue(null);
+        }
+        console.error(error);
       }
     );
   }

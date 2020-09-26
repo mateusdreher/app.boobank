@@ -9,7 +9,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 export class AuthService {
 
   private base_url: string;
-  private currentUserSessionSubject: BehaviorSubject<string>;
+  public currentUserSessionSubject: BehaviorSubject<string>;
 
   constructor(private http: HttpClient) {
     this.base_url = "http://localhost:3333/login";
@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   public setCurrentUserSessionValue(session: string): void  {
-    sessionStorage.setItem("sesison_value", JSON.stringify(session));
+    sessionStorage.setItem("session_value", JSON.stringify(session));
     this.currentUserSessionSubject.next(session);
   }
   

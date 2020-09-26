@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-import { AppErrorHandle } from '@core/handleError/HandleError';
 
 
 registerLocaleData(localePt);
@@ -25,7 +24,6 @@ registerLocaleData(localePt);
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt-BR'},
-    {provide: ErrorHandler, useClass: AppErrorHandle}
   ],
   bootstrap: [AppComponent]
 })
