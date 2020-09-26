@@ -1,3 +1,4 @@
+import { AuthService } from '@providers/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,14 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewComponent implements OnInit {
 
-  path: string;
+  showHeaderAndFooter: boolean;
 
-  constructor() {
-    this.path = location.pathname;
+  constructor(private authService: AuthService) {
+    if (authService.currentUserSessionValue) {
+      this.showHeaderAndFooter = true;
+    }
+    else {
+      this.showHeaderAndFooter = false;
+    }
   }
 
   ngOnInit(): void {
-    
+    this.authService.currentUserSessionSubject.subscribe(
+      (event) => {
+        if (event != null) {
+          this.showHeaderAndFooter = true;
+        }
+        else{
+          this.showHeaderAndFooter = false;
+        }
+      }
+    )
   }
 
 }

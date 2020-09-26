@@ -1,0 +1,19 @@
+<div class="card z-depth-3" *ngIf="!loader">
+    <div class="title">
+        <i class="material-icons">attach_money</i>
+        Saldo Atual
+    </div>
+    <div class="content">
+        <i class="material-icons" [ngStyle]="balance > 0 ? {color: 'green'} : {color: 'red'}">
+            {{  
+                balance > 0 ?
+                'arrow_upward' : 
+                'arrow_downward'
+            }}
+        </i>
+        {{balance | currency: 'BRL':'symbol'}}
+    </div>
+</div>
+<div class="loader">
+    <app-loader *ngIf="loader"></app-loader>
+</div>

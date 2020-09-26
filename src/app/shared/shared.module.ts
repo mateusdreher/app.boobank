@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CardComponent } from './components/card/card.component';
 import { ToastInvalidInputComponent } from './components/toast-invalid-input/toast-invalid-input.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
-    CardComponent,
-    ToastInvalidInputComponent
+    ToastInvalidInputComponent,
+    LoaderComponent
   ],
 
   imports: [
   ],
 
   exports: [
-    CardComponent,
-    ToastInvalidInputComponent
+    ToastInvalidInputComponent,
+    LoaderComponent
   ]
 })
 export class SharedModule { }

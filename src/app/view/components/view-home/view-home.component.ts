@@ -1,3 +1,5 @@
+declare const M;
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewHomeComponent implements OnInit {
 
+  tabs: HTMLElement;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.tabs = document.getElementsByClassName("tabs")[0] as HTMLElement;
+
+    M.Tabs.init(this.tabs, "");
   }
 
 }

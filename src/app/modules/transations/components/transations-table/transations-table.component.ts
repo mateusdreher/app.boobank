@@ -26,7 +26,7 @@ export class TransationsTableComponent implements OnInit {
         this.saveTransationstoVariable(result['res'].data);
       },
       (error) => {
-        if(error.status == 401) {
+        if (error.error.res.statusCode == 7) {
           this.authService.setCurrentUserSessionValue(null);
         }
         console.error(error);
