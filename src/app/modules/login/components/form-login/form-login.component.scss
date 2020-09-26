@@ -9,7 +9,7 @@
         width: 150px;
         height: 50px;
         background-color: $cor_fundo_destaque2;
-        color: $cor_fonte_geral;
+        color: $cor_fonte_titulo;
         border: none;
         border-radius: 10px;
         &:hover {
@@ -37,5 +37,9 @@ input {
 }
 .redirect-register {
     margin-top: 15%;
-    color: white
+    color: white;
+    a:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
 }

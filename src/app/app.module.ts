@@ -20,7 +20,7 @@ registerLocaleData(localePt);
     BrowserModule,
     HttpClientModule,
     HttpModule,
-    ViewModule
+    ViewModule,
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt-BR'},
