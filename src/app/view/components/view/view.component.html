@@ -1,3 +1,5 @@
+<app-header *ngIf="path == '/'"></app-header>
 <div class="view">
     <router-outlet></router-outlet>
 </div>
+<app-footer *ngIf="path == '/'"></app-footer>

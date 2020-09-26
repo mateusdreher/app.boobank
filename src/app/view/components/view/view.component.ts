@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewComponent implements OnInit {
 
-  constructor() { }
+  path: string;
+
+  constructor() {
+    this.path = location.pathname;
+  }
 
   ngOnInit(): void {
+    
   }
 
 }

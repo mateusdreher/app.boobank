@@ -1,3 +1,4 @@
+declare const M;
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  tooltip: HTMLElement;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+    this.tooltip = document.getElementsByClassName("tooltipped")[0] as HTMLElement;
+    M.Tooltip.init(this.tooltip, "");
   }
 
 }
