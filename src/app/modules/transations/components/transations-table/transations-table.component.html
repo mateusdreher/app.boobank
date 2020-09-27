@@ -1,4 +1,5 @@
-<table class="highlight responsive-table centered">
+<p *ngIf="no_transations" class="no_transations">Você não possui transações</p>
+<table class="highlight responsive-table centered" *ngIf="!no_transations">
     <thead>
         <tr>
             <th></th>

@@ -1,9 +1,38 @@
+@import '../../../shared/style-variables.scss';
+
 .view-register {
-    .title {
-        color: white;
+    .content {
+        width: 50%;
+        height: 98vh;
+        padding: 3%;
+        .title {
+            text-align: center;
+            color: white;
+        }
+        .apr1 { 
+            color: $cor_fonte_geral;
+            margin-top: 10%;
+            border-right: 2px solid $cor_fundo_destaque2;
+            font-style: italic;
+            font-weight: bolder;
+        }
+        .apr2 {
+            color: $cor_fonte_geral;
+            margin-top: 15%;
+            margin-bottom: 20%;
+            border-left: 2px solid $cor_fundo_destaque2;
+            font-style: italic;
+            font-weight: bolder;
+        }
     }
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
+
+    .form { 
+        border-radius: 10px;
+        padding: 3%;
+        border: 2px solid $cor_fundo_destaque2
+    }
 }

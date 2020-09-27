@@ -10,6 +10,18 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5%;
+    .account-infos {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 20%;
+        height: 80px;
+        border: 2px solid $cor_fundo_destaque;
+        border-radius: 10px;
+        padding: 3%;
+        color: $cor_fonte_titulo;
+        background-color: $cor_fundo_destaque2;
+    }
     .logo {
         width: 20%;
         height: 100px;

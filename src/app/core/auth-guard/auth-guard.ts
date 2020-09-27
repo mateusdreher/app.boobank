@@ -16,9 +16,12 @@ export class AuthGuard implements CanActivate {
 
         this.authService.currentUserSessionSubject.subscribe(
             (event) => {
-                if (event == null) {
-                    this.msg.error("Sua seão expirou. Por favor faça o login novamente");
+                if (event.session == null && event.expired) {
+                    this.msg.error("Sua sessão expirou. Por favor faça o login novamente");
                     this.router.navigate(['/login']);
+                }
+                if (event.session == null && !event.expired) {
+                    this.router.navigate(['/register']);
                 }
             }
         );
@@ -29,6 +32,6 @@ export class AuthGuard implements CanActivate {
             return true;
         }
 
-        this.router.navigate(['/login']);
+        this.router.navigate(['/register']);
     }
 }

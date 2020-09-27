@@ -13,6 +13,7 @@ import { AuthService } from '@providers/auth/auth.service';
 export class TransationsTableComponent implements OnInit {
 
   transations: Array<ITransation> = [];
+  no_transations: boolean;
   
   constructor(private transationsService: TransationsService, private authService: AuthService) { }
 
@@ -27,7 +28,7 @@ export class TransationsTableComponent implements OnInit {
       },
       (error) => {
         if (error.error.res.statusCode == 7) {
-          this.authService.setCurrentUserSessionValue(null);
+          this.authService.setCurrentUserSessionValue(null, true);
         }
         console.error(error);
       }
@@ -39,7 +40,12 @@ export class TransationsTableComponent implements OnInit {
       this.transations.push(result[index]);
     });
     
-    console.log(this.transations);
+    if (Object.keys(result).length == 0) {
+      this.no_transations = true;
+    }
+    else {
+      this.no_transations = false;
+    }
   }
 
 }

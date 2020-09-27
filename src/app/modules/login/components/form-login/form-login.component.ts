@@ -14,6 +14,7 @@ export class FormLoginComponent implements OnInit {
 
   login: any;
   toasts: object;
+  loader: boolean;
 
   constructor(private authService: AuthService, private msg: ShowMessagesService, private router : Router) {
     this.login = {
@@ -47,16 +48,30 @@ export class FormLoginComponent implements OnInit {
   }
 
   submit(): void {
+    this.loader = true;
     if (this.formIsValid()) {
       this.authService.auth(this.login.username, this.login.password).subscribe(
         (result) => {
-          this.authService.setCurrentUserSessionValue(result['res'].data.token);
+          sessionStorage.setItem("cod_usu", result['res'].data.cod_usu);
+          this.loader = false;
+          this.authService.setCurrentUserSessionValue(result['res'].data.token, false);
           this.router.navigate(['']);
+        },
+        (error) => {
+          this.loader = false;
+          if (error.error.res && error.error.res.statusCode == 3 ) {
+            this.msg.error("Usuário incorreto");
+          }
+          if (error.error.res && error.error.res.statusCode == 4 ) {
+            this.msg.error("Senha incorreta");
+          }
+          console.error(error);
         }
       )
     }
 
     else {
+      this.loader = false;
       this.msg.error("Verifique os campos");
     }
   }

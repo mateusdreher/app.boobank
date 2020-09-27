@@ -1,0 +1,31 @@
+.div-tip {
+    animation: show 4s;
+}
+.icon {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: url('../../../../../assets/images/ghost-icon.png') center center no-repeat;
+    background-size: contain;
+}
+.tip {
+    padding: 5%;
+    border: 1px solid #4779B2;
+    border-radius: 10px;
+    color: #A7ADBF;
+}
+.title {
+    font-size: 1.1rem;
+    color: white;
+    
+}
+
+@keyframes show{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

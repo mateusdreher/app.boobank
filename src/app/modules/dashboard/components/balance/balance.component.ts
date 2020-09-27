@@ -29,7 +29,7 @@ export class BalanceComponent implements OnInit {
       (error) => {
         this.loader = false;
         if (error.error.res.statusCode == 7) {
-          this.authService.setCurrentUserSessionValue(null);
+          this.authService.setCurrentUserSessionValue(null, true);
         }
         console.error(error);
         

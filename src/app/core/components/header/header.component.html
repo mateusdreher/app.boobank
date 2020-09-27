@@ -1,9 +1,13 @@
 <header>
     <div class="logo"></div>
+    <div class="account-infos z-depth-2">
+        <p>Ag: {{account.agency}}</p>
+        <p>cc/: {{account.account_number}} - {{account.verify_digit}}</p>
+    </div>
     <div class="end">
-        <div class="user">Bem vindo, Mateus</div>
+        <div class="user">Bem vindo</div>
         <div class="exit">
-            <a class="tooltipped" data-position="bottom" data-tooltip="Sair">
+            <a class="tooltipped" data-position="bottom" data-tooltip="Sair" (click)="logout()">
                 <i class="material-icons">meeting_room</i>
             </a>
         </div>

@@ -9,21 +9,21 @@ import { Observable, BehaviorSubject } from 'rxjs';
 export class AuthService {
 
   private base_url: string;
-  public currentUserSessionSubject: BehaviorSubject<string>;
+  public currentUserSessionSubject: BehaviorSubject<any>;
 
   constructor(private http: HttpClient) {
-    this.base_url = "http://localhost:3333/login";
+    this.base_url = "https://api-boobank.herokuapp.com/login";
 
-    this.currentUserSessionSubject = new BehaviorSubject<string>(JSON.parse(sessionStorage.getItem("session_value")));
+    this.currentUserSessionSubject = new BehaviorSubject<any>({session: JSON.parse(sessionStorage.getItem("session_value")), expired: false});
   }
 
   public get currentUserSessionValue():string {
     return this.currentUserSessionSubject.value;
   }
 
-  public setCurrentUserSessionValue(session: string): void  {
+  public setCurrentUserSessionValue(session: string, expired: boolean): void  {
     sessionStorage.setItem("session_value", JSON.stringify(session));
-    this.currentUserSessionSubject.next(session);
+    this.currentUserSessionSubject.next( {  session, expired } );
   }
   
   auth(username: string, password: string):Observable<Object> {

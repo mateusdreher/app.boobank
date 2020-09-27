@@ -11,7 +11,7 @@ export class ViewComponent implements OnInit {
   showHeaderAndFooter: boolean;
 
   constructor(private authService: AuthService) {
-    if (authService.currentUserSessionValue) {
+    if (authService.currentUserSessionValue['session'] != null) {
       this.showHeaderAndFooter = true;
     }
     else {
@@ -22,7 +22,7 @@ export class ViewComponent implements OnInit {
   ngOnInit(): void {
     this.authService.currentUserSessionSubject.subscribe(
       (event) => {
-        if (event != null) {
+        if (event.session != null) {
           this.showHeaderAndFooter = true;
         }
         else{

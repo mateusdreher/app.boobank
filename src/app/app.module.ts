@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID, ErrorHandler } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { ViewModule } from './view/view.module';

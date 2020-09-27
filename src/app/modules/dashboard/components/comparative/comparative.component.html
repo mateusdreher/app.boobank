@@ -1,1 +1,17 @@
-<p>comparative works!</p>
+<div class="card z-depth-3" *ngIf="!loader">
+    <div class="title">
+        <i class="material-icons">bar_chart</i>
+        Comparativo Ganhos x Gastos
+    </div>
+    <div class="content">
+        <div class="ganhos">
+            <i class="material-icons" [ngStyle]="{color: 'green'}">arrow_upward</i>
+            {{balance['earning'] | currency: 'BRL':'symbol'}}
+        </div>
+        <div class="gastos">
+            <i class="material-icons" [ngStyle]="{color: 'red'}">arrow_downward</i>
+            {{balance['spending'] | currency: 'BRL':'symbol'}}
+        </div>
+    </div>
+</div>
+<app-loader *ngIf="loader"></app-loader>

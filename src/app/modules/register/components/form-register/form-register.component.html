@@ -123,6 +123,8 @@
             <button type="button" (click)="submit()">Criar minha conta</button>
         </div>
 
+        <app-loader *ngIf="loader"></app-loader>
+
         <div class="redirect-login">
             <h6><i>Já possui conta BooBank? <a [routerLink]="['/login']">Faça seu login agora mesmo</a></i></h6>
         </div>

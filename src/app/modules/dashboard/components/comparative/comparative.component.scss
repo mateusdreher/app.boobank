@@ -1,0 +1,22 @@
+@import '../../../../shared/style-variables.scss';
+
+.card {
+    padding: 5%;
+    padding-bottom: 10%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: $cor_fundo_destaque;
+    .title {
+        display: flex;
+        align-items: center;
+        color: $cor_fonte_titulo;
+    }
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 10%;
+        font-size: $tamanho_fonte_valor;
+        color: $cor_fonte_geral;
+    }
+}

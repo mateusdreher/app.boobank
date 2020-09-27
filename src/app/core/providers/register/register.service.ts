@@ -14,18 +14,14 @@ export class RegisterService {
 
 
   constructor(private http: HttpClient) {
-    this.base_url = "http://localhost:3333";
+    this.base_url = "https://api-boobank.herokuapp.com/register";
   }
 
   createUser(user: IUser): Observable<Object> {
-    return this.http.post(`${this.base_url}/register`, user);
-  }
-
-  saveAddress(address: IUserAddress): Observable<Object> {
-    return this.http.post(`${this.base_url}/address`, address);
+    return this.http.post(this.base_url, user);
   }
 
   verifyUsername(username: string): Observable<Object> {
-    return this.http.get(`${this.base_url}/register?username=${username}`);
+    return this.http.get(`${this.base_url}?username=${username}`);
   }
 }

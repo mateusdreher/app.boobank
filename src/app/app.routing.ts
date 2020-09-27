@@ -10,7 +10,7 @@ const ROOT_ROUTE: Routes = [
     {path: 'register', component: ViewRegisterComponent},
     {path: 'login', component: ViewLoginComponent},
     {path: '', component: ViewHomeComponent, canActivate: [AuthGuard]},
-    {path: '**', redirectTo: 'login', pathMatch:'full'}
+    {path: '**', redirectTo: 'register', pathMatch:'full'}
   ]
   
   export const root_route: ModuleWithProviders = RouterModule.forRoot(ROOT_ROUTE);

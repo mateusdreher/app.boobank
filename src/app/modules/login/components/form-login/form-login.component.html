@@ -39,6 +39,8 @@
     <div class="button-login">
         <button (click)="submit()">Entrar</button>
     </div>
+    
+    <app-loader *ngIf="loader"></app-loader>
 </div>
 
 <div class="redirect-register">
